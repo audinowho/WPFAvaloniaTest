@@ -24,6 +24,12 @@ namespace AvaloniaTest
             AvaloniaXamlLoader.Load(this);
         }
 
+        public void OneTime_Click(object sender, RoutedEventArgs e)
+        {
+            curVal++;
+            Console.WriteLine(curVal);
+        }
+
         int curVal;
         public void InvokeAsyncRecursive_Click(object sender, RoutedEventArgs e)
         {
@@ -56,7 +62,7 @@ namespace AvaloniaTest
             {
                 Console.WriteLine("Tick {0} from Thread {1}", val, Thread.CurrentThread.ManagedThreadId);
                 //await Task.Yield();
-                await Task.Delay(1000);
+                await Task.Delay(15);
             }
         }
 

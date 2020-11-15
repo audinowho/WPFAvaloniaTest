@@ -6,6 +6,7 @@
         x:Class="AvaloniaTest.MainWindow"
         Title="AvaloniaTest" Width="200" Height="200">
   <StackPanel>
+    <Button Content="One Time" Click="OneTime_Click"/>
     <Button Content="InvokeAsync Recursive Enqueue" Click="InvokeAsyncRecursive_Click"/>
     <Button Content="InvokeAsync Loop/Yield" Click="InvokeAsyncLoopYield_Click"/>
     <Button Content="Task.Run Loop/Yield" Click="TaskRunLoopYield_Click"/>
