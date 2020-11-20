@@ -24,6 +24,13 @@ namespace WpfTest
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainWindowViewModel();
+        }
+        private void AddTons_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindowViewModel vm = (MainWindowViewModel)DataContext;
+            for (int ii = 0; ii < 10000; ii++)
+                vm.TestItems.Add(vm.TestItems.Count.ToString("D5"));
         }
 
 

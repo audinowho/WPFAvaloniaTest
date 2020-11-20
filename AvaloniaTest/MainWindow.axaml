@@ -1,14 +1,20 @@
 ﻿<Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:AvaloniaTest;assembly=AvaloniaTest"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         x:Class="AvaloniaTest.MainWindow"
         Title="AvaloniaTest" Width="200" Height="200">
+  <Design.DataContext>
+    <vm:MainWindowViewModel/>
+  </Design.DataContext>
   <StackPanel>
     <Button Content="One Time" Click="OneTime_Click"/>
     <Button Content="InvokeAsync Recursive Enqueue" Click="InvokeAsyncRecursive_Click"/>
     <Button Content="InvokeAsync Loop/Yield" Click="InvokeAsyncLoopYield_Click"/>
     <Button Content="Task.Run Loop/Yield" Click="TaskRunLoopYield_Click"/>
+    <Button Content="Add Tons" Click="AddTons_Click"/>
+    <ComboBox Items="{Binding TestItems}" VirtualizationMode="Simple"/>
   </StackPanel>
 </Window>

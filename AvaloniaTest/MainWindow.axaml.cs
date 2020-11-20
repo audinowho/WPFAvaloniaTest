@@ -61,10 +61,25 @@ namespace AvaloniaTest
             while (true)
             {
                 Console.WriteLine("Tick {0} from Thread {1}", val, Thread.CurrentThread.ManagedThreadId);
-                //await Task.Yield();
-                await Task.Delay(15);
+                await Task.Run(AsyncTestIter);
             }
         }
 
+        public async void AsyncTestIter()
+        {
+            await Task.Run(AsyncTestIter2);
+        }
+        public async void AsyncTestIter2()
+        {
+            await Task.Delay(15);
+        }
+
+
+        public void AddTons_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindowViewModel vm = (MainWindowViewModel)DataContext;
+            for (int ii = 0; ii < 3000; ii++)
+                vm.TestItems.Add(vm.TestItems.Count.ToString("D4"));
+        }
     }
 }
