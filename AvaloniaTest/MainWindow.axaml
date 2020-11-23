@@ -16,5 +16,6 @@
     <Button Content="Task.Run Loop/Yield" Click="TaskRunLoopYield_Click"/>
     <Button Content="Add Tons" Click="AddTons_Click"/>
     <ComboBox Items="{Binding TestItems}" VirtualizationMode="Simple"/>
+    <ListBox DoubleTapped="ModalDialog_Open"/>
   </StackPanel>
 </Window>

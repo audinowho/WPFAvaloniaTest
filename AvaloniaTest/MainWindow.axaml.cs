@@ -81,5 +81,12 @@ namespace AvaloniaTest
             for (int ii = 0; ii < 3000; ii++)
                 vm.TestItems.Add(vm.TestItems.Count.ToString("D4"));
         }
+
+        public async void ModalDialog_Open(object sender, RoutedEventArgs e)
+        {
+            MainWindow window = new MainWindow();
+            bool result = await window.ShowDialog<bool>(this);
+            Console.WriteLine("Dialog Complete");
+        }
     }
 }
