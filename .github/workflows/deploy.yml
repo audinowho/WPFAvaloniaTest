@@ -31,3 +31,12 @@ jobs:
         run: zip -r linux-x64.zip publish/linux-x64/AvaloniaTest/
       - name: Zip Mac
         run: zip -r osx-x64.zip publish/osx-x64/AvaloniaTest/
+      - name: Upload Windows
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./windows-x64.zip
+          asset_name: windows-x64.zip
+          asset_content_type: application/zip
