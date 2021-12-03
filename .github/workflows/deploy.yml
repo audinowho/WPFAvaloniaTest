@@ -26,11 +26,11 @@ jobs:
       - name: Build Mac
         run: dotnet publish -c Release -r osx-x64 AvaloniaTest/AvaloniaTest.csproj
       - name: Zip Windows
-        run: zip -r windows-x64.zip publish/win-x64/AvaloniaTest/
+        run: cd publish/win-x64/;zip -r windows-x64.zip AvaloniaTest/
       - name: Zip Linux
-        run: zip -r linux-x64.zip publish/linux-x64/AvaloniaTest/
+        run: cd publish/linux-x64/;zip -r linux-x64.zip AvaloniaTest/
       - name: Zip Mac
-        run: zip -r osx-x64.zip publish/osx-x64/AvaloniaTest/
+        run: cd publish/osx-x64/;zip -r osx-x64.zip AvaloniaTest/
       - name: Set Version
         run: echo "::set-output name=version::$(sed -En 's,<\AssemblyVersion>(.+)</AssemblyVersion>,\1,p' AvaloniaTest/AvaloniaTest.csproj)"
         id: version
@@ -51,7 +51,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./windows-x64.zip
+          asset_path: ./publish/win-x64/windows-x64.zip
           asset_name: windows-x64.zip
           asset_content_type: application/zip
       - name: Upload Linux
@@ -60,7 +60,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./linux-x64.zip
+          asset_path: ./publish/linux-x64/linux-x64.zip
           asset_name: linux-x64.zip
           asset_content_type: application/zip
       - name: Upload Mac
@@ -69,6 +69,6 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./osx-x64.zip
+          asset_path: ./publish/osx-x64/osx-x64.zip
           asset_name: osx-x64.zip
           asset_content_type: application/zip
