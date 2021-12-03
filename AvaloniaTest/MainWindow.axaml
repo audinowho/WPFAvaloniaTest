@@ -17,5 +17,17 @@
     <Button Content="Add Tons" Click="AddTons_Click"/>
     <ComboBox Items="{Binding TestItems}" VirtualizationMode="Simple"/>
     <ListBox DoubleTapped="ModalDialog_Open"/>
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="20"/>
+        <ColumnDefinition/>
+        <ColumnDefinition Width="20"/>
+        <ColumnDefinition/>
+      </Grid.ColumnDefinitions>
+      <TextBlock Grid.Column="0">X:</TextBlock>
+      <NumericUpDown Grid.Column="1"/>
+      <TextBlock Grid.Column="2">Y:</TextBlock>
+      <NumericUpDown Grid.Column="3"/>
+    </Grid>
   </StackPanel>
 </Window>
