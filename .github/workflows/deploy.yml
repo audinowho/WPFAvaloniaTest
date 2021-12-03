@@ -26,8 +26,8 @@ jobs:
       - name: Build Mac
         run: dotnet publish -c Release -r osx-x64 AvaloniaTest/AvaloniaTest.csproj
       - name: Zip Windows
-        run: cd AvaloniaTest/publish/win-x64;zip -r windows-x64.zip AvaloniaTest/
+        run: zip -r windows-x64.zip publish/win-x64/AvaloniaTest/
       - name: Zip Linux
-        run: cd AvaloniaTest/publish/linux-x64;zip -r linux-x64.zip AvaloniaTest/
+        run: zip -r linux-x64.zip publish/linux-x64/AvaloniaTest/
       - name: Zip Mac
-        run: AvaloniaTest/publish/osx-x64;zip -r osx-x64.zip AvaloniaTest/
+        run: zip -r osx-x64.zip publish/osx-x64/AvaloniaTest/
