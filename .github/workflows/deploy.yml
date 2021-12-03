@@ -13,5 +13,13 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Hello
-        run: echo "Hello World I pushed a tag."
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v1.7.2
+        with:
+          dotnet-version: 5.0.x
+      - name: Restore
+        run: dotnet restore
+      - name: Build
+        run: dotnet publish -c Release -r win-x64 AvaloniaTest/AvaloniaTest.csproj
+        run: dotnet publish -c Release -r linux-x64 AvaloniaTest/AvaloniaTest.csproj
+        run: dotnet publish -c Release -r osx-x64 AvaloniaTest/AvaloniaTest.csproj
