@@ -1,0 +1,15 @@
+name: deploy
+on: push
+    tags:
+      - '*'
+jobs:
+  build_deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    steps:
+	  - name: checkout
+        uses: actions/checkout@v2
+		with:
+		  fetch-depth: 0
+	  - name: Hello
+        run: echo "Hello World I pushed a tag."
